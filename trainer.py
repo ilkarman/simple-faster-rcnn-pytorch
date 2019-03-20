@@ -21,7 +21,6 @@ LossTuple = namedtuple('LossTuple',
                         'total_loss'
                         ])
 
-
 class FasterRCNNTrainer(nn.Module):
     """wrapper for conveniently training. return losses
 
@@ -60,7 +59,7 @@ class FasterRCNNTrainer(nn.Module):
 
         # indicators for training status
         self.rpn_cm = ConfusionMeter(2)
-        self.roi_cm = ConfusionMeter(21)
+        self.roi_cm = ConfusionMeter(2)
         self.meters = {k: AverageValueMeter() for k in LossTuple._fields}  # average loss
 
     def forward(self, imgs, bboxes, labels, scale):
